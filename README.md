@@ -1,6 +1,6 @@
 # Imagedive
 
-[![Imagedive Logo](./path-to-your-image.png)](https://github.com/hummxt/imagedive/releases/download/download/imagedive.exe)
+[![Imagedive Logo](./icons/logo.png)](https://github.com/hummxt/imagedive/releases/download/download/imagedive.exe)
 
 A simple Electron desktop app to search wallpapers from Pexels, download them, and set as wallpaper on Windows.
 
@@ -44,6 +44,7 @@ npm run generate-icons
 
 ## License
 MIT
+
 
 
 
