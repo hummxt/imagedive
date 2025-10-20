@@ -3,6 +3,10 @@
 A simple Electron desktop app to search wallpapers from Pexels, download them, and set as wallpaper on Windows.
 
 ## Install
+
+[Download Imagedive for Windows](https://github.com/hummxt/imagedive/releases/tag/download)
+
+
 1. Install Node.js (LTS).
 2. Install dependencies:
    
@@ -38,4 +42,5 @@ npm run generate-icons
 
 ## License
 MIT
+
 
