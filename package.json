@@ -1,0 +1,83 @@
+{
+  "name": "imagedive",
+  "version": "1.0.0",
+  "description": "Imagedive Application",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "generate-icons": "node build-icon.js",
+    "build": "electron-builder build --win --publish never",
+    "build:dir": "electron-builder build --win --dir",
+    "build:portable": "electron-builder build --win portable"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "*",
+    "electron-builder": "^26.0.12",
+    "electron-packager": "^17.1.2",
+    "png-to-ico": "*"
+  },
+  "build": {
+    "appId": "com.imagedive.app",
+    "productName": "Imagedive",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "index.html",
+      "script.js",
+      "styles.css",
+      "download.js",
+      "icons/**/*",
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico",
+      "requestedExecutionLevel": "asInvoker",
+      "forceCodeSigning": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico"
+    },
+    "linux": {
+      "icon": "build/icon.png"
+    },
+    "extraResources": [
+      {
+        "from": "build",
+        "to": "build",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": ".",
+        "to": "app",
+        "filter": [
+          "index.html",
+          "script.js",
+          "styles.css",
+          "download.js"
+        ]
+      }
+    ]
+  }
+}

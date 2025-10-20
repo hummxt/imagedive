@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' https://images.pexels.com data:; connect-src 'self' https://api.pexels.com https://images.pexels.com; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Imagedive</title>
+  </head>
+  <body>
+    <div class="title-bar">
+      <div class="title-bar-left">
+        <img
+          src="icons/icon.png"
+          alt="Imagedive Logo"
+          class="app-logo"
+          height="22"
+          style="vertical-align: middle; margin-right: 8px"
+        />
+        <div class="app-name">Imagedive</div>
+      </div>
+      <div class="window-title">Images from Pexels API</div>
+      <div class="title-bar-right">
+        <button class="title-bar-button minimize-btn" id="minimize">
+          <svg width="12" height="12" viewBox="0 0 12 12">
+            <rect x="2" y="5" width="8" height="2" fill="currentColor" />
+          </svg>
+        </button>
+        <button class="title-bar-button maximize-btn" id="maximize">
+          <svg width="12" height="12" viewBox="0 0 12 12">
+            <rect
+              x="2"
+              y="2"
+              width="8"
+              height="8"
+              stroke="currentColor"
+              stroke-width="1.5"
+              fill="none"
+            />
+          </svg>
+        </button>
+        <button class="title-bar-button close-btn" id="close">
+          <svg width="12" height="12" viewBox="0 0 12 12">
+            <path
+              d="M2 2L10 10M10 2L2 10"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="header">
+        <h1><span id="typewriter"></span></h1>
+        <p class="subtitle">
+          Search millions of high‑quality wallpapers for your desktop
+        </p>
+        <div class="hero-badges" role="list">
+          <span class="badge" role="listitem">High quality</span>
+          <span class="badge" role="listitem">Millions of images</span>
+          <span class="badge" role="listitem">Free to download</span>
+        </div>
+      </div>
+
+      <div class="search-section">
+        <div class="search-container">
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="Search wallpapers (e.g., nature, city, space)"
+            aria-label="Search wallpapers"
+          />
+          <div class="search-actions">
+            <button
+              id="searchBtn"
+              class="search-btn"
+              aria-label="Search wallpapers"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <button id="clearBtn" class="clear-btn">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="filters">
+        <div class="filter-container">
+          <button class="filter-button" data-filter="category">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <span class="filter-label">Category</span>
+            <svg
+              class="filter-arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div class="popup" id="categoryPopup">
+            <div class="popup-header">
+              <h3 class="popup-title">Choose Category</h3>
+              <button class="popup-close">&times;</button>
+            </div>
+            <div class="popup-content">
+              <div class="filter-options">
+                <div class="filter-option" data-value="nature">Nature</div>
+                <div class="filter-option" data-value="abstract">Abstract</div>
+                <div class="filter-option" data-value="landscape">
+                  Landscape
+                </div>
+                <div class="filter-option" data-value="city">City</div>
+                <div class="filter-option" data-value="space">Space</div>
+                <div class="filter-option" data-value="minimal">Minimal</div>
+                <div class="filter-option" data-value="architecture">
+                  Architecture
+                </div>
+                <div class="filter-option" data-value="ocean">Ocean</div>
+                <div class="filter-option" data-value="forest">Forest</div>
+                <div class="filter-option" data-value="mountain">Mountain</div>
+                <div class="filter-option" data-value="sunset">Sunset</div>
+                <div class="filter-option" data-value="flowers">Flowers</div>
+                <div class="filter-option" data-value="animals">Animals</div>
+                <div class="filter-option" data-value="technology">
+                  Technology
+                </div>
+                <div class="filter-option" data-value="cars">Cars</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-container">
+          <button class="filter-button" data-filter="orientation">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <line x1="9" y1="3" x2="9" y2="21" />
+              <line x1="15" y1="3" x2="15" y2="21" />
+            </svg>
+            <span class="filter-label">Orientation</span>
+            <svg
+              class="filter-arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div class="popup" id="orientationPopup">
+            <div class="popup-header">
+              <h3 class="popup-title">Choose Orientation</h3>
+              <button class="popup-close">&times;</button>
+            </div>
+            <div class="popup-content">
+              <div class="filter-options">
+                <div class="filter-option" data-value="all">All</div>
+                <div class="filter-option" data-value="landscape">
+                  Landscape
+                </div>
+                <div class="filter-option" data-value="portrait">Portrait</div>
+                <div class="filter-option" data-value="square">Square</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-container">
+          <button class="filter-button" data-filter="size">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M21 3H3v18h18V3z" />
+              <path d="M15 3v18M9 3v18" />
+            </svg>
+            <span class="filter-label">Size</span>
+            <svg
+              class="filter-arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div class="popup" id="sizePopup">
+            <div class="popup-header">
+              <h3 class="popup-title">Choose Size</h3>
+              <button class="popup-close">&times;</button>
+            </div>
+            <div class="popup-content">
+              <div class="filter-options">
+                <div class="filter-option" data-value="all">All Sizes</div>
+                <div class="filter-option" data-value="large">
+                  Large (24MP+)
+                </div>
+                <div class="filter-option" data-value="medium">
+                  Medium (12MP+)
+                </div>
+                <div class="filter-option" data-value="small">Small (4MP+)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-container">
+          <button class="filter-button" data-filter="color">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 2v20M2 12h20" />
+            </svg>
+            <span class="filter-label">Color</span>
+            <svg
+              class="filter-arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div class="popup" id="colorPopup">
+            <div class="popup-header">
+              <h3 class="popup-title">Choose Color</h3>
+              <button class="popup-close">&times;</button>
+            </div>
+            <div class="popup-content">
+              <div class="color-filters">
+                <div
+                  class="color-option"
+                  data-value="red"
+                  data-color="#e74c3c"
+                ></div>
+                <div
+                  class="color-option"
+                  data-value="orange"
+                  data-color="#f39c12"
+                ></div>
+                <div
+                  class="color-option"
+                  data-value="yellow"
+                  data-color="#f1c40f"
+                ></div>
+                <div
+                  class="color-option"
+                  data-value="green"
+                  data-color="#27ae60"
+                ></div>
+                <div
+                  class="color-option"
+                  data-value="turquoise"
+                  data-color="#1abc9c"
+                ></div>
+                <div
+                  class="color-option"
+                  data-value="blue"
+                  data-color="#3498db"
+                ></div>
+                <div
+                  class="color-option"
+                  data-value="violet"
+                  data-color="#9b59b6"
+                ></div>
+                <div
+                  class="color-option"
+                  data-value="pink"
+                  data-color="#e91e63"
+                ></div>
+                <div
+                  class="color-option"
+                  data-value="brown"
+                  data-color="#795548"
+                ></div>
+                <div
+                  class="color-option"
+                  data-value="black"
+                  data-color="#2c3e50"
+                ></div>
+                <div
+                  class="color-option"
+                  data-value="gray"
+                  data-color="#95a5a6"
+                ></div>
+                <div
+                  class="color-option"
+                  data-value="white"
+                  data-color="#ffffff"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="loading-indicator">
+        <div class="loading-spinner"></div>
+        Loading images...
+      </div>
+
+      <div class="backgrounds" id="backgrounds"></div>
+      <div id="scroll-sentinel" aria-hidden="true" style="height: 1px"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="download.js"></script>
+  </body>
+</html>
