@@ -3,7 +3,7 @@
 </a>
 
 
-A simple Electron desktop app to search wallpapers from Pexels, download them, and set as wallpaper on Windows.
+A simple Electron.js desktop app to search wallpapers from Pexels, download them, and set as wallpaper on Windows.
 
 ## Install
 
@@ -45,6 +45,7 @@ npm run generate-icons
 
 ## License
 MIT
+
 
 
 
